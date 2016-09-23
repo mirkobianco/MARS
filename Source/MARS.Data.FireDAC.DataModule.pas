@@ -135,7 +135,7 @@ begin
     end
   );
 
-  LDataSets := [];
+  SetLength(LDataSets, 0);
   TRttiHelper.ForEachField(Self
     , function(AField: TRttiField): Boolean
       begin
@@ -145,7 +145,10 @@ begin
           if (LIncludeDefault or AField.HasAttribute<RESTInclude>)
              and (not AField.HasAttribute<RESTExclude>)
           then
-            LDataSets := LDataSets + [AField.GetValue(Self).AsObject as TFDCustomQuery]
+          begin
+            SetLength(LDataSets, Length(LDataSets) + 1);
+            LDataSets[High(LDataSets)] := AField.GetValue(Self).AsObject as TFDCustomQuery;
+          end;
         end;
 
         Result := True;

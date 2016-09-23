@@ -10,9 +10,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
-  FMX.StdCtrls, FMX.Layouts, FMX.ListBox, FMX.MultiView
-  , Generics.Collections, FMX.Memo, FMX.Controls.Presentation, FMX.Edit,
-  FMX.ScrollBox;
+  FMX.StdCtrls, FMX.Layouts, FMX.ListBox,
+  Generics.Collections, FMX.Memo, FMX.Edit;
 
 type
   TMainForm = class(TForm)
@@ -20,9 +19,7 @@ type
     MainTabControl: TTabControl;
     HelloWorldTabItem: TTabItem;
     SubresourcesTabItem: TTabItem;
-    Execute: TButton;
     Memo1: TMemo;
-    Layout1: TLayout;
     EchoStringLayout: TLayout;
     InputEchoStringEdit: TEdit;
     Label1: TLabel;
@@ -43,6 +40,7 @@ type
     Label6: TLabel;
     InputSum2Edit: TEdit;
     Label7: TLabel;
+    Button1: TButton;
     procedure ExecuteClick(Sender: TObject);
     procedure EchoStringButtonClick(Sender: TObject);
     procedure ReverseStringButtonClick(Sender: TObject);

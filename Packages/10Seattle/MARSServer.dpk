@@ -5,7 +5,7 @@ package MARSServer;
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
-{$DEBUGINFO OFF}
+{$DEBUGINFO ON}
 {$EXTENDEDSYNTAX ON}
 {$IMPORTEDDATA ON}
 {$IOCHECKS ON}
@@ -45,7 +45,7 @@ requires
   FireDACCommon,
   fmxFireDAC,
   dsnap,
-  DataSnapFireDAC;
+  soaprtl;
 
 contains
   MARS.Core.Application in '..\..\Source\MARS.Core.Application.pas',

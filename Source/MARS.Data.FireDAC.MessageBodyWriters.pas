@@ -43,10 +43,6 @@ uses
   , FireDAC.Stan.Intf
   , FireDACJSONReflect
 
-  , FireDAC.Stan.StorageBIN
-  , FireDAC.Stan.StorageJSON
-  , FireDAC.Stan.StorageXML
-
   , MARS.Core.JSON
   , MARS.Core.Exceptions
   , MARS.Rtti.Utils
@@ -105,8 +101,8 @@ begin
   LDataset := AValue.AsType<TFDAdaptedDataSet>;
   if AMediaType.Matches(TMediaType.APPLICATION_XML) then
     LStorageFormat := sfXML
-  else if AMediaType.Matches(TMediaType.APPLICATION_JSON) then
-    LStorageFormat := sfJSON
+//  else if AMediaType.Matches(TMediaType.APPLICATION_JSON) then
+//    LStorageFormat := sfJSON
   else if AMediaType.Matches(TMediaType.APPLICATION_OCTET_STREAM) then
     LStorageFormat := sfBinary
   else

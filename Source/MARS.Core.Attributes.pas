@@ -303,10 +303,10 @@ begin
       tkInt64, tkInteger, tkFloat, tkChar
       , tkLString, tkWString, tkString: StringToTValue(ARequest.Content, AParam.ParamType);
 
-      tkUString: Result := ARequest.RawContent;
+      tkUString: Result := string(ARequest.RawContent);
 
       else
-        Result := ARequest.RawContent;
+        Result := string(ARequest.RawContent);
     end;
 
 {$endif}
@@ -433,7 +433,7 @@ end;
 function HeaderParamAttribute.GetValue(const ARequest: TWebRequest;
   const AParam: TRttiParameter; const AEnginePath: string; const AApplicationPath: string): TValue;
 begin
-  Result := StringToTValue(ARequest.GetFieldByName(GetActualName(AParam)), AParam.ParamType);
+  Result := StringToTValue(string(ARequest.GetFieldByName(AnsiString(GetActualName(AParam)))), AParam.ParamType);
 end;
 
 { CookieParamAttribute }

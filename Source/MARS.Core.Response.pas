@@ -50,8 +50,8 @@ begin
   else
     AWebResponse.Content := Content;
 
-  AWebResponse.ContentType := ContentType;
-  AWebResponse.ContentEncoding := ContentEncoding;
+  AWebResponse.ContentType := AnsiString(ContentType);
+  AWebResponse.ContentEncoding := AnsiString(ContentEncoding);
   AWebResponse.StatusCode := StatusCode;
 end;
 

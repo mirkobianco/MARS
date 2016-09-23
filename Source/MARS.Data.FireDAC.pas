@@ -18,7 +18,6 @@ uses
   , FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf
   , FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async
   , FireDAC.Phys, Data.DB, FireDAC.Comp.Client, FireDAC.FMXUI.Wait
-  , FireDAC.Stan.StorageXML, FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin
   , FireDAC.Comp.UI
   , FireDAC.DApt
 
@@ -209,19 +208,22 @@ var
 begin
   CheckConnection;
 
-  LData := [];
+  SetLength(LData, 0);
   try
     // load dataset(s)
     SetupStatements;
     for LStatement in Statements do
-      LData := LData + [ReadDataSet(LStatement.Key, LStatement.Value)];
+    begin
+      SetLength(LData, Length(LData) + 1);
+      LData[High(LData)] := ReadDataSet(LStatement.Key, LStatement.Value);
+    end;
 
     Result := LData;
   except
     // clean up
     for LCurrent in LData do
       LCurrent.Free;
-    LData := [];
+    SetLength(LData, 0);
     raise;
   end;
 end;

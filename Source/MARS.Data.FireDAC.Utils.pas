@@ -12,8 +12,7 @@ uses
   , MARS.Core.JSON
   , MARS.Core.Exceptions
   , FireDACJSONReflect
-  , FireDAC.Comp.Client
-  , FireDAC.Stan.StorageBin;
+  , FireDAC.Comp.Client;
 
 procedure FireDACJSONToMemTable(const AJSONContent: string; ADataSetName: string;
   AMemTable: TFDMemTable);

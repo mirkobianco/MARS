@@ -140,7 +140,7 @@ var
   LAuthTokens: TArray<string>;
 begin
   Result := '';
-  LAuth := AWebRequest.Authorization;
+  LAuth := string(AWebRequest.Authorization);
   LAuthTokens := LAuth.Split([' ']);
   if (Length(LAuthTokens) >= 2) then
     if SameText(LAuthTokens[0], 'Bearer') then

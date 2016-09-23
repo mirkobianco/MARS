@@ -241,7 +241,7 @@ begin
   try
 
     // cache initial ContentType value to check later if it has been changed
-    LContentType := Response.ContentType;
+    LContentType := string(Response.ContentType);
 
     FillResourceMethodParameters;
     try
@@ -256,8 +256,8 @@ begin
       // 2 - MessageBodyWriter mechanism (standard)
       else if Assigned(FWriter) then
       begin
-        if Response.ContentType = LContentType then
-          Response.ContentType := FWriterMediaType.ToString;
+        if Response.ContentType = AnsiString(LContentType) then
+          Response.ContentType := AnsiString(FWriterMediaType.ToString);
 
         LStream := TBytesStream.Create();
         try
@@ -281,7 +281,7 @@ begin
           , tkInteger, tkInt64, tkFloat, tkVariant:
           begin
             Response.Content := LMethodResult.AsString;
-            if (Response.ContentType = LContentType) then
+            if (Response.ContentType = AnsiString(LContentType)) then
               Response.ContentType := TMediaType.TEXT_PLAIN; // or check Produces of method!
             Response.StatusCode := 200;
           end;

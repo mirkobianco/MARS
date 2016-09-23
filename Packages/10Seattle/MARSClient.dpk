@@ -6,7 +6,7 @@ package MARSClient;
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
-{$DEBUGINFO OFF}
+{$DEBUGINFO ON}
 {$EXTENDEDSYNTAX ON}
 {$IMPORTEDDATA ON}
 {$IOCHECKS ON}
@@ -39,12 +39,12 @@ requires
   FireDACCommon,
   FireDACCommonDriver,
   FireDAC,
-  DataSnapFireDAC,
   IndySystem,
   IndyProtocols,
   IndyCore,
   bindengine,
-  bindcomp;
+  bindcomp,
+  soaprtl;
 
 contains
   MARS.Client.Application in '..\..\Source\MARS.Client.Application.pas',
